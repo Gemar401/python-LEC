@@ -1,0 +1,106 @@
+第四次练习
+请务必交到exer4文件夹下，谢绝交到master下
+请不要改动任何文件，拜托
+请在10月30日前提交。
+请写一下姓名和学号：
+
+姓名 刘念初
+学号 0164299
+题目一
+一般的歌，分为主歌和副歌部分。副歌有重复，对比两大功能。这就是A－B的基本曲式形式结构。
+请找一首你的主打歌，把歌词打印出来，重复的副歌部分，请写一个函数，调用函数打印出来。
+
+In [ ]:
+print('''
+今キミと　そう　ドキドキがはじまる
+
+ほらすぐ目の前で
+''')
+def  repeat():
+    print('''
+耻ずかしいから
+
+そんなに见つめないで　ねぇ
+
+早く扉の键をあけて　今すぐ
+
+''')
+repeat()
+repeat()
+repeat()
+print('''X（キミ）とY（ボク）とZ（不思议）の魔法かけちゃえば
+
+フレームの中に见える
+
+梦と希望に乗せて WAVE が流れる''')
+题目二
+请写一个函数，能够计算均值、样本方差和n(自己写公式哦)。 每次输入十个以上的数字，能够输出上述三个统计量。 至少调用两次。
+
+In []:
+def formula(*numbers):
+    a=0
+    b=0
+    n=0
+    for number in numbers:
+        a=a+number
+        n+=1
+        average=a/n
+    print("\n均值是(保留两位小数）%s"%round(average,2))
+    for number in numbers:
+        b=b+(number-average)**2
+        varian=b/n
+    print("\n样本方差是(保留两位小数）%s"%round(varian,2))
+    print("\n标准差是(保留两位小数）%s"%round(varian**0.5,2))
+formula(1,2,3,4，5,6,7,8,9)
+formula(6,3,9,5,4,4,6,7,1)
+题目三
+刚才那个函数，默认的是输出均值、样本方差和n，请在后面添加一个关键词参数，让这个函数可以选择输出样本标准差或方差。
+
+def formula(*numbers):
+    a=0
+    b=0
+    n=0
+    for number in numbers:
+        a=a+number
+        n+=1
+        average=a/n
+    for number in numbers:
+        b=b+(number-average)**2
+        varian=b/n
+    d = int(input("\n想输出样本标准差请输入1，想输出方差请输入2"))
+    if d== 1:
+        print("\n样本标准差是(保留两位小数）%s"%round(varian**0.5,2))  
+    else:
+        print("\n样本方差是(保留两位小数）%s"%round(varian,2))
+        formula(1,2,3,4，5,6,7,8,9)
+题目四
+刚才那个函数，请再增加三个关键词参数，让这个参数可以选择输出均值的标准误、最大值、最小值或不输出这三个统计量。
+
+ef formula(max=None,min=None,*numbers):
+    a=0
+    b=0
+    n=0
+    for number in numbers:
+        a=a+number
+        n+=1
+        average=a/n
+    for number in numbers:
+        b=b+(number-average)**2
+        varian=b/n
+        d = (b/(n**3))**0.5
+    for number in numbers:
+        if number>max:
+            max=number
+    for number in numbers:
+        if number<min:
+            min=number
+    e1 = int(input("\n需要打印均值标准误请输入1，不需要则输入其他？"))
+    if e1==1:
+        print("样本标准误为%s"%round(d,2))
+    e2 = int(input("\n需要打印最大值请输入1，不需要则输入其他？"))
+    if e2==1:
+         print("样本中的最大值%s"%max)
+    e3 = int(input("\n需要打印最小值请输入1，不需要则输入其他？"))
+    if e3==1:
+        print("样本中的最小值%s"%min)   
+formula(1,2,3,4，5,6,7,8,9)
